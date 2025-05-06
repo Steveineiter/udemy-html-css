@@ -1,0 +1,182 @@
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  font-family: sans-serif;
+  color: #444;
+}
+
+/* Order is important, because else the header color would be overwritten with the 
+color scheme from above. */
+h1,
+h2,
+h3 {
+  color: #1098ad;
+}
+
+/* Color will be overwriten by internal/inline css */
+h1 {
+  /* color: pink; */
+  font-size: 26px;
+  /* font-family: serif; Would overwrite the combined selector.*/
+  text-transform: uppercase;
+  font-style: italic;
+  /* color: rgba(16, 152, 173, 0.466); Using the approach we just learned. 
+  If we have multiple notations it will use the last one. */
+  color: #1098ad;
+}
+
+h2 {
+  font-size: 40px;
+  /* font-family: sans-serif; */
+}
+
+h3 {
+  font-size: 30px;
+  /* font-family: sans-serif; */
+}
+
+h4 {
+  font-size: 20px;
+  /* font-family: sans-serif; */
+  text-transform: uppercase;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  /* font-family: sans-serif; */
+  line-height: 1.5; /* meaning it has 1.5 times the font size. */
+}
+
+/* Notice: we do not style ul/ol elements but li */
+li {
+  font-size: 20px;
+  /* font-family: sans-serif; */
+}
+
+/* Selects all p which are inside of footer (descentend selector). This is not robust atm tho */
+/* Again to make it more robust we use classes. */
+/* footer p {
+  font-size: 16px;
+} */
+
+/* This would also change a p inside header which we don't want. */
+/* header p {
+  font-style: italic;
+} */
+/* Thus we use a nested decentend selector. This is also not smart,
+ since it makes it hard to change code in future. Solvable with class and ID selectors.*/
+/* article header p {
+  font-style: italic; 
+} */
+/* Thus BEST way (ID selectors): */
+#author {
+  font-style: italic;
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 16px;
+}
+
+/* I used ID, but he ment we should use a class here because we might add something and
+ are prepared for future. In RL we always use class*/
+/* #related-posts-list {
+  list-style: none;
+} */
+
+/* class selector */
+/* We select this p 4 times or so, they all apply. We will discuss that a bit later. */
+.related-author {
+  font-size: 18px;
+  font-weight: bold; /* This keyword is used to make it bold.*/
+}
+
+/* We did this because it should be semantically a list, but not look like one. */
+.related-posts-list {
+  list-style: none;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+}
+
+aside {
+  background-color: #f7f7f7;
+  /* border is a special property because it uses multiple values 
+  (aka we set 3 properties with 1 property so to speak) */
+  /* border: 5px solid #1098ad; */
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  /* border-left/right: 5px solid #1098ad; would then be the same as using only border: ...*/
+}
+
+body {
+  /* background-color: blue; */
+}
+/* we can do better than this  */
+/* .first-li {
+  font-weight: bold;
+} */
+/* We achieve this via pesudo-classes: */
+/* li:first-child will select all li elements that are 1. child elments of parent element */
+li:first-child {
+  font-weight: bold;
+}
+
+li:last-child {
+  font-style: italic;
+}
+
+li:nth-child(2) {
+  color: red;
+}
+
+li:nth-child(even) {
+  color: green;
+}
+
+/* This wont work since header is the first child of article 
+(at least in original setting article-header-p) */
+article p:first-child {
+  color: red;
+}
+
+article p:last-child {
+  color: red;
+}
+
+/* Styling links */
+
+/* We shouln't use it like this: */
+/* a {
+  color: #1098ad
+} */
+/* But with pseudo classes like this: */
+a:link {
+  color: #1098ad;
+  text-decoration: none;
+}
+
+a:visited {
+  /* We never do this in practice, we give them the same color as the link class */
+  color: #777;
+  color: #1098ad;
+}
+
+/* This pseudo class is one of the most important */
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline orangered; /* We could also use dotted, wavy, double, solid... */
+}
+
+/* What it looks like during duration of click */
+a:active {
+  background-color: #777;
+  font-style: italic;
+}
+/* Acronym for the 4 of above: LVHA  */
