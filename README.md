@@ -47,6 +47,7 @@ We are using prettier linter.
 17. Universal selector applies to all elements but won't be inherited. Styles which are eg in body are on the ohter hand inherited.
 18. **Best practices** see challenge file in section_3(item-69.html and item-69.css). Most of the times he uses classes (only exception, if its for everything eg font family), and for anchors he styles each part individual (so instead of a {color} he uses a:link {color}). Also he adds seperators (eg PRODUCT, PRODUCT DETAILS, ...) as comments.
     - Also it's really nice to just inspect elements and then try stuff out (eg i had no clue how to style a button, but with inspecting it and playing around with the values it was quite straight forward)
+    - Again, don't use eg li directly but eg class tag of ol/ul and then li tag. aka .foo li (decendet selector). I think thats important!
 19. Box Model is like a painting. We have content, border, padding, margin and fill area (fills all except margin, eg with a background color). On heihgt and width calculation we have to keep in mind the padding and border (aka width = left border&padding + width + right padding&border). This is by default, but we can change this (since it might not make sense in our usecase).
     - He likes to keep big boxes on top of CSS file.
     - See box model on bottom of styles in inspect for color mapp (eg padding is green)

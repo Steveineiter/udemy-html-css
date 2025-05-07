@@ -124,7 +124,7 @@ more-info:active {
 }
 
 .container {
-  width: 800px;
+  width: 900px;
   margin: 0 auto;
 }
 
@@ -149,11 +149,11 @@ its best practice to wrap it inside a <p> tag and style this one. */
   margin-bottom: 20px;
 } */
 .more-info-container {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .details-title {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .details-list {
@@ -171,6 +171,33 @@ li:last-child {
 .add-to-cart {
   width: 100%;
   height: 50px;
+}
+/* -------------------------------------------- */
+/* His solution differences: */
+/* He doesnt create a div this time but centers the article. */
+.product {
+  width: 825px;
+  margin: 50px auto;
+}
+
+/* Padding because we want to have background color */
+.product-title {
+  padding: 15px;
+}
+
+.details-title {
+  /* margin-top: 30px; he added this because we haven't learned
+   why we cant add maring bottom to the anchor tag. */
+}
+
+/* TODO He used descentend selector like this, smarter as my direct solution! */
+.details-list li {
+  margin-bottom: 10px;
+}
+
+/* I forgot this one xD */
+.add-to-cart:hover {
+  border-top: 4px solid black;
 }
 
 /* ================================================================================= */
