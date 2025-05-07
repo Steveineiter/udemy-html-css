@@ -1,0 +1,176 @@
+body {
+  font-family: sans-serif;
+  /* border: 2px solid black; let to unexpected behaviour if in 
+    challenge 2 (with .container there still was a broder around body which makes sense*/
+}
+
+h2 {
+  font-size: xx-large;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(204, 204, 204, 0.418);
+}
+
+strong {
+  font-size: x-large;
+}
+
+a {
+  color: black;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: square;
+}
+
+button {
+  font-size: x-large;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border-width: 0px;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+}
+
+.free-shipping {
+  font-size: small;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #777;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ============== His solution differences ============ */
+/* He mostly uses classes (never IDs), still went from top to bottom. I guess 
+he does that so that we have more information (eg . product-title is better than using h2) */
+body {
+  line-height: 1.5;
+}
+
+/* ********** PRODUCT ********* */
+.product {
+  border: 4px solid black;
+  padding: 10px;
+}
+
+.product-title {
+  /* text-align: center; */
+  font-size: 22px;
+  /* text-transform: uppercase; */
+  background-color: #f7f7f7;
+}
+
+/* ********** PRODUCT INFORMATION ********** */
+.price {
+  font-size: 24px;
+}
+
+.free-shipping {
+  font-size: 12px;
+}
+
+/* Important, use link pseudoclass instead .more-info alone. This is best practice (LVHA!) */
+.more-info:link,
+.more-info:visited {
+  color: black;
+}
+
+.more-info:hover,
+more-info:active {
+  /* text-decoration: none; */
+}
+
+/* ********** PRODUCT DETAILS ********** */
+.details-title {
+  font-size: 16px;
+}
+
+.details-list {
+  /* list-style: square; */
+}
+
+/* ********** BUTTON ********** */
+
+.add-to-cart {
+  /* background-color: #000; */
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  /* text-transform: uppercase; */
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+/* ================================================================================= */
+/* Challenge 2 */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.product {
+  padding: 0px;
+}
+
+.free-shipping {
+  margin-bottom: 20px;
+}
+
+.information {
+  margin-bottom: 10px;
+}
+
+/* anchor is inline by default aka we cannot add a maring top/bottom. Therefore
+its best practice to wrap it inside a <p> tag and style this one. */
+/* .more-info:link,
+.more-info:hover,
+.more-info:link,
+.more-info:visited {
+  margin-bottom: 20px;
+} */
+.more-info-container {
+  margin-bottom: 10px;
+}
+
+.details-title {
+  margin-bottom: 20px;
+}
+
+.details-list {
+  margin-left: 50px;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+li:last-child {
+  margin-bottom: 10px;
+}
+
+.add-to-cart {
+  width: 100%;
+  height: 50px;
+}
+
+/* ================================================================================= */

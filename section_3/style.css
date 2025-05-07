@@ -1,3 +1,27 @@
+/* Universal selector selects all elements on page, this isnt going to be inherited. 
+Has lowest priority and will easily be overwrited */
+* {
+  /* border-top: 10px solid #1098ad; */
+
+  /* Nice to remove all maring and padding, this is quite 
+  common (many projects start with removing those) */
+  margin: 0;
+  padding: 0;
+}
+
+/* This is inheritance, this is not selecting. We declear values for 
+properties and then they will be passed down to childs. Many styles will NOT be inherited. 
+Eg border top, this would be very inpraticial.*/
+body {
+  color: #444;
+  font-family: sans-serif;
+
+  /* Not inherited */
+  border-top: 10px solid #1098ad;
+  /* margin: 0; */
+}
+
+/* we don't need this anymore because the body {} deals with this now. 
 h1,
 h2,
 h3,
@@ -5,7 +29,65 @@ h4,
 p,
 li {
   font-family: sans-serif;
-  color: #444;
+  /* color: #444; 
+} 
+*/
+
+.container {
+  /* width: 100%; */
+  width: 900px;
+  /* To center this container, we will use auto for left and right margin. 
+     This means the margin left should be similar to the margin on the right. 
+     This should be the size of screen - container size (900px) - residual/2 - residual/2 
+         where residual = size of screen - container size */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* Again we can write this as short hand */
+  margin: 0 auto;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  /* Its better to use shorthand */
+  /* padding: 1px 2px 3px 4px; */
+  padding: 20px 40px;
+  margin-bottom: 60px;
+  height: 80px;
+}
+
+/* nav a:link,
+nav p {
+  font-size: 18px;
+} */
+/* Better with inheritage */
+nav {
+  font-size: 18px;
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+aside {
+  background-color: #f7f7f7;
+  /* border is a special property because it uses multiple values 
+  (aka we set 3 properties with 1 property so to speak) */
+  /* border: 5px solid #1098ad; */
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  /* border-left/right: 5px solid #1098ad; would then be the same as using only border: ...*/
+
+  /* padding-top: 50px;
+  padding-bottom: 50px; */
+  padding: 50px 0;
+  width: 500px;
 }
 
 /* Order is important, because else the header color would be overwritten with the 
@@ -31,11 +113,14 @@ h1 {
 h2 {
   font-size: 40px;
   /* font-family: sans-serif; */
+  margin-bottom: 30px;
 }
 
 h3 {
   font-size: 30px;
   /* font-family: sans-serif; */
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
 h4 {
@@ -49,12 +134,24 @@ p {
   font-size: 22px;
   /* font-family: sans-serif; */
   line-height: 1.5; /* meaning it has 1.5 times the font size. */
+  margin-bottom: 15px;
+}
+
+ul,
+ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 /* Notice: we do not style ul/ol elements but li */
 li {
   font-size: 20px;
   /* font-family: sans-serif; */
+  margin-bottom: 10px;
+}
+
+li:last-child {
+  margin-bottom: 0;
 }
 
 /* Selects all p which are inside of footer (descentend selector). This is not robust atm tho */
@@ -98,20 +195,6 @@ li {
 /* We did this because it should be semantically a list, but not look like one. */
 .related-posts-list {
   list-style: none;
-}
-
-.main-header {
-  background-color: #f7f7f7;
-}
-
-aside {
-  background-color: #f7f7f7;
-  /* border is a special property because it uses multiple values 
-  (aka we set 3 properties with 1 property so to speak) */
-  /* border: 5px solid #1098ad; */
-  border-top: 5px solid #1098ad;
-  border-bottom: 5px solid #1098ad;
-  /* border-left/right: 5px solid #1098ad; would then be the same as using only border: ...*/
 }
 
 body {
@@ -180,3 +263,32 @@ a:active {
   font-style: italic;
 }
 /* Acronym for the 4 of above: LVHA  */
+
+/* Resolving conflicts */
+/* Highest priority */
+#copyright {
+  color: red;
+}
+
+.copyright {
+  color: blue;
+}
+
+/* Same priotiy as above, but later in code aka this will be displayed */
+.text {
+  color: yellow;
+}
+
+/* With !important this will be showen, not matter what. NEVER use it tho, 
+if we rally can't figure it out its most likely due to complex strucutre. */
+footer p {
+  color: green !important;
+}
+
+/* This will overwrite the specifications in the img tag in HTML */
+.post-image {
+  /* percentage is the width of the parent, aka 100% = width of parent = width of entire page 
+      this is really nice since it adapts as we make the window smaller/larger.*/
+  width: 100%;
+  height: auto; /* We only need this because we set height in HTML */
+}
