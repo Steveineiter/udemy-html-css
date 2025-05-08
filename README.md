@@ -3,6 +3,10 @@
 Its also amazing that i can use VIM in this project :D see my shell-setup readme for commands.
 We are using prettier linter.
 
+## Important notes/thoughts
+
+- I think i should always optimize for chrome (since opera and edge are chromium based). Aka if it works on chrome it should work everywhere as well sort of. I think chromium and safari are 90% of user base => **optimize for chromium and safari**.
+
 ## VSC extensions:
 
 - prettier
@@ -11,7 +15,7 @@ We are using prettier linter.
 - auto rename tag
 - live server
 
-## HTML notes:
+## HTML fundamentals notes:
 
 1. We should use only ONE h1 tag.
 2. We should NOT use \<b> for bold text but \<strong> in HTML5. This is called semantic HTML.
@@ -23,7 +27,9 @@ We are using prettier linter.
 8. Semantic stuff is nice for SEO (they understand structure) and extremly important for accessibility (eg better screenreaders). Also IMO it makes the code more readable. This encodes what this elements mean and what they stand for.
 9. the first file should always be called index.html, this is convention.
 
-## CSS notes:
+## CSS fundamentals notes:
+
+Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
 
 1. We style elements by using selector (h1) with and declaration block which has multiple declarations/styles which consists of properties (font-size:) and values (20pf) inside.
 2. We have 3 ways to implement CSS: Inline, Internal, External. Inline should never be used tho. We don't want to entangle html and css - we want to seperate it (seperation of concerns). Internal will bloat our code so external (aka having a own css file) might be the best approach, escepially if we have large css parts (eg 500 lines).
@@ -41,7 +47,8 @@ We are using prettier linter.
     - Really nice to try things out without changing our code (eg to try out different CSS priorities)
 14. We can have conflicting selectors (eg different rules which select the same element). Then we have different priorities which builds the CSSOM. See resolving slide. If we have same priority last selector in code applies. Priority is: External styles with Universal selector (\*), Element selector (p, div, li, ...), Class (.) or pseudo-class(:) selector, ID (#) selector, Internal styles (same priorities of id, class, etc), Inline styles (which we shouln't do), declarations marked !important (basically a hack, should also never be used - means our structure is too complex if we can't figure out why it won't work).**NOTE** all selectors will be applied, aka the priority is only important in case where we change the same property (eg font-size)
     - So normally we only have an external style sheet and thus in practice: _Universal selector < Element selector < Class selector (with last applied in code is more important)_
-    - If we hover over the seelctor we can see the priority as well
+    - If we hover over the selector we can see the priority as well
+    - More complex selectors have a higher number (if we hover over in VSC) which means they will have a higher priority first (higher is better)
 15. we can also add 2 classes (class="foo bar")
 16. We can say that inherited values do have the lowest properties. Need to check out if thats true (eg inherited from a class tag) - nope xD Most of the inherited properties are related to text (font-family, font-size, color, ...) but NOT things like border-top
 17. Universal selector applies to all elements but won't be inherited. Styles which are eg in body are on the ohter hand inherited.
@@ -54,4 +61,24 @@ We are using prettier linter.
     - For **creating vertical space** its often common to only add a margin to the bottom. We should stick to one tho (either use only top or bottom, but he thinks only add to bottom makes more sense). Thats because if we mix it up it might be hard to design it as we want (eg 50 top and 30 bot of previous element will not be 80 apart but only 50 called _collapsing margins_)
     - Currently we use numbers for margin/padding etc sort of by feeling/at random. Later we will have a system for this.
     - If we need space inside of element (mostly usefull if we use background color), if we need space outside or between elements always use margin. For vertical space use bottom margin as discussed above.
+    - **Inline block** advantages: combines best of both worlds: Occupies only content's space and cause no line break from inline, box-model applies as showed from box model. Neat if we want to display elements side by side.
 20. To center we need to have an container for everything. Since it has no sematnic meaning we can use a div for that. If we set a width then, children can only be as large as the width of this container.
+21. We have inline boxes (eg strong) and block level boxes (eg body, header, footer, p, h2, ... - use 100% of parents width). Block level boxes are stacked vertically one after another by default.
+    - Inline elements only occupies space necessary for its content (eg em, strong, a, img, button, ...), left and right paddings & margins do apply tho.
+    - **Its important** to keep that in mind.
+    - we can change this with the display property. Altough if we use this it's often a hack. Sometimes it makes sense tho.
+    - There is a 3. type: Inline-Block boxes (look like inline from outside, behave like block level on inside.) This combines best properties of both. One case is eg for the nav bar we used for links.
+    - Images behave like inline-block elements.
+    - Most of the times we do not use display property!
+22. We should **not use fixed numbers** for element heights.
+23. We can use normal flow or absolute positioning. Normal flow is default with position: relative. For absolute position we have position: absolute (might overlap). We place an element relative to another container (top, right, ...) If we do not specify, its default relative to view point (aka top: 0, left: 0 results in beeing in upper left corner)
+    - We have to **set postion:relative** of parent element where we want it to appear. This is sort of telling the absolute element "hey, be relative to me" altough they are relative by default. So it goes up and up of parents until something has position: relative; ("hey, be relative to me") else it uses the viewpoint.
+    - **Don't use absolute** to often! We only use this for specific elements, as eg the like button.
+24. Siblings are children of the same parent. Adjacent siblings are the very next sibling. Aka the sibling which comes right after it. We do this with eg h3 + p (so the + operator)
+25. after and before are some of the most important pseudo-elements (used for **small adjustments** if we don't want to add a whole new element in HTML) its also good practice to set this to display: inline-block
+26. **Debugging** in CSS/HTML is pretty much checking out the rendered page. I guess using inspect is nice as well.
+    - Often its about the tags (eg forgetting to close aside) which then is harder to find later. We can then use a **HTML validator (always nice tho)** to validate our html (eg validator.w3.org).
+    - Also its nice to compare files (diff, eg previous version and buggy one, or my solution and his solution) we can use inbuilt of IDE or use diffchecker.com.
+    - Another bug cause are often with selectors. Eg we write a class selector on bottom of file and later a nested element selector. Then its great to check out the CSSOM in inspect. Also AVOID complex selectore (will avoid bugs like those). Eg use classes most of the time as we did in the challenge.
+    - If we have no CSS in our rendered page, most of the times if we messed up the link/import from CSS file to HTML file.
+    - In a nutshell, check our rendered page, inspect, check code, use tools.
