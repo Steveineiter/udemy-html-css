@@ -82,3 +82,12 @@ Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
     - Another bug cause are often with selectors. Eg we write a class selector on bottom of file and later a nested element selector. Then its great to check out the CSSOM in inspect. Also AVOID complex selectore (will avoid bugs like those). Eg use classes most of the time as we did in the challenge.
     - If we have no CSS in our rendered page, most of the times if we messed up the link/import from CSS file to HTML file.
     - In a nutshell, check our rendered page, inspect, check code, use tools.
+
+## Layouts: Flotas, Flexbox, and CSS Grids
+
+1. Flexbox and CSS Grids are the most modern approach.
+2. Layouts provide visual strcuture, into which we place content. This is one of our main jobs.
+3. We create a visual layout to not have them one after another (normal flow) which looks boring and harder to understand.
+4. We have page and component layout.
+5. Float layouts are old way, are getting outdated fast so might be in legacy systems. CSS Grid is nice if we have a 2-dimensionald grid. Thus **Flexbox is nice for component and CSS Grid for Page layout**.
+6. If element are floats its as the elements are not on the page / are removed. Thats why eg background colors might get messed up with floats. This is called _collapsing element_
