@@ -9,7 +9,7 @@
 
   <body>
     <div class="container">
-      <header class="main-header">
+      <header class="main-header clearfix">
         <h1>📘 The Code Magazine</h1>
 
         <nav>
@@ -19,6 +19,12 @@
           <a href="#">Flexbox</a>
           <a href="#">CSS Grid</a>
         </nav>
+
+        <!-- Fixes problem, but is not best practice / more of a hack. 
+         Would need to add this after each which clutters up html. But float is 
+         Outdated anywars xD -->
+        <div class="clear"></div>
+        <!-- Better practice / we should know about - clear/fix hack see header class -->
       </header>
 
       <article>

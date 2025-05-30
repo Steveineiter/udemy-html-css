@@ -90,4 +90,9 @@ Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
 3. We create a visual layout to not have them one after another (normal flow) which looks boring and harder to understand.
 4. We have page and component layout.
 5. Float layouts are old way, are getting outdated fast so might be in legacy systems. CSS Grid is nice if we have a 2-dimensionald grid. Thus **Flexbox is nice for component and CSS Grid for Page layout**.
-6. If element are floats its as the elements are not on the page / are removed. Thats why eg background colors might get messed up with floats. This is called _collapsing element_
+6. If element are floats its as the elements are not on the page / are removed. Thats why eg background colors might get messed up with floats. This is called _collapsing element_. They are not a positioning argument.
+7. If we create layouts its often nice to give them background colors, so that we see them easier on the page.
+8. If we have too large widths of elements (eg container has 1200px, float1 has 800 float2 450) the design will get messed up. Then we have to change the box-model (default is box-sizing: content-box) by using **box-sizing: border-box**. This is cool because we can specify how large the box should be. He stated that almost any frontend-engineer uses this, since it makes much more sense. Becuase the calculations are much more simpler (no border, no padding) thus width=width, height=height. This makes our life much easier. Keep in mind that margin is NOT included tho.
+   - Good pratice to have it in all-selector \* {}
+9. We **don't need calulcations** etc anymore as soon as we use flexbox. Looking forward to that \<3 xD
+10. We also aren't too deep into how floats work since they are quiet obsolote xD.
