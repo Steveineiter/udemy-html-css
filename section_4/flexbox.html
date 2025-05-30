@@ -40,11 +40,23 @@
         margin: 40px;
 
         /* FLEXBOX */
+        display: flex;
+
+        /* This would be quite hard without flexbox, we would select all items and then center them correctly */
+        align-items: center;
+        /* align-items: flex-start; */
+        /* align-items: flex-end; */
+        /* align-items: stretch; */
+
+        /* justify-content: center; */
+        /* Distributes left over space nicely */
+        justify-content: space-between;
       }
     </style>
   </head>
   <body>
     <div class="container">
+      <!-- Those are called flex items then -->
       <div class="el el--1">HTML</div>
       <div class="el el--2">and</div>
       <div class="el el--3">CSS</div>

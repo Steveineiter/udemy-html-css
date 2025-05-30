@@ -96,3 +96,8 @@ Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
    - Good pratice to have it in all-selector \* {}
 9. We **don't need calulcations** etc anymore as soon as we use flexbox. Looking forward to that \<3 xD
 10. We also aren't too deep into how floats work since they are quiet obsolote xD.
+
+### Flexbox
+
+1. have width as much they need, height of the highest flex-item within a given parent by default. But we can use eg align-items:center
+2. Flexbox REALLY powerful. We can do things with one line which else would need quite a lot of code and trial and error / calculations to get it right.
