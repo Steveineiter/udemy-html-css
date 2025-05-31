@@ -116,3 +116,14 @@ Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
 14. With float layouts it was really hard to get 2 children exactly the same height etc. Now its default - amazing :3
 15. In the end we need a div/container for all elements which should be stacked horizontally / we want to have in one line.
 16. Flex box is REALLY important, and CSS-Grid are kidna based on them.
+
+### CSS-Grid
+
+1. We can use display: none to remove an element(or container) completely form the page.
+2. Most modern, complete and even easiest (if using fundamentals) way to build layouts. Is a two dimensional layout (row, columns)
+3. Again, things as in css-grid where insanly hard earlier and took alot of time.
+4. CSS-Grid nice since it leads to **less nested HTML** (aka even less as we need for flexbox)
+5. CSS-Grid does NOT replace flexbox. for 1D layout we use flexbox, for 2D we use CSS-Grid.
+6. **Terminology:** As in flexbox we have a Grid container with Grid items, row and column axes (we can't change their orientation tho). Additionally we have grid lines (pretty much teh seperators of items, eg 2x3 grid has 3x4 grid lines). We also have Grid cells (do not have to be filled by a Grid item and do also not have to be filled entierly). Gaps are called Gutters. We also have Grid track/row and Grid track/column.
+7. Using pixels is very ridgid, so often we want flexible rows/columns.
+8. If a row is added automatically, we call it implicit rows. If we define it manually its called an explicit row.
