@@ -50,7 +50,52 @@
 
         /* justify-content: center; */
         /* Distributes left over space nicely */
-        justify-content: space-between;
+        /* justify-content: space-between; */
+        justify-content: flex-start;
+
+        gap: 10px;
+      }
+
+      .el {
+        /* In flexbox we use gap for this, see in container above. Nice because elements wont have a margin then. */
+        /* margin-right: 30px; */
+
+        /* Default values */
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+
+        /* Only gives them this size if we have enough space left. Except we use flex-srhink:0 then we enfroce it.*/
+        /* flex-basis: 100px; */
+        flex-shrink: 0;
+        /* Make elements as large as possible / not what they need. */
+        flex-grow: 1;
+
+        /* It figures out that this is flex-grow: 1. */
+        flex: 1;
+
+        /* Best praticie ony use flex: ... */
+        flex: 0 0 200px;
+      }
+
+      .el--1 {
+        /* align-self used for unique elements */
+        align-self: flex-start;
+        order: -2;
+
+        /* Remaining space will be filled by this element. With 2 it will get double of the remaining space than the 
+        others with 1. If we set it to eg 100 it will get almost all the remaining space. We often don't use this tho.*/
+        /* flex-grow: 2; */
+      }
+
+      .el--5 {
+        align-self: stretch;
+        order: 1;
+      }
+
+      .el--6 {
+        /* Order is 0 for all of our elements */
+        order: -1;
       }
     </style>
   </head>

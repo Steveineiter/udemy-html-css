@@ -82,6 +82,7 @@ Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
     - Another bug cause are often with selectors. Eg we write a class selector on bottom of file and later a nested element selector. Then its great to check out the CSSOM in inspect. Also AVOID complex selectore (will avoid bugs like those). Eg use classes most of the time as we did in the challenge.
     - If we have no CSS in our rendered page, most of the times if we messed up the link/import from CSS file to HTML file.
     - In a nutshell, check our rendered page, inspect, check code, use tools.
+27. **Best practice** often we want to have double horizontal than vertical padding/space.
 
 ## Layouts: Flotas, Flexbox, and CSS Grids
 
@@ -101,3 +102,17 @@ Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
 
 1. have width as much they need, height of the highest flex-item within a given parent by default. But we can use eg align-items:center
 2. Flexbox REALLY powerful. We can do things with one line which else would need quite a lot of code and trial and error / calculations to get it right.
+3. Main idea was to divide empty space inside a container. And to align items to one another. This solves many problems as vertical centering and equal-height columns. This was really difficult, we are lucky that we don't need old school stuff anymore xD This leads to cleaner and more robust code.
+4. Terminology: We have an Flex container (display: flex); children of this container are flex-items; those items are layed out by the main (left to right) and cross axis (top to bottom)
+5. Flex container most important props: gap (space between items), justify-content (main axis), align-items (cross axis), flex-direction (define main axis), flex-wrap (wrap into new line), align-content (used for mulitiple lines, aka if we use flex-wrap: wrap)
+6. Flex items most important props: align-self, flex-grow, flex-shrink, flex-basis, flex: 0 1 auto (shorthand for flex-grow, -shrink, -basis), order
+7. Ordere is always 0. Thus if we want to have an element in the front we use order: -1. to the back order: 1.
+8. Flex-basis is more of a recommendation, browser will figure out optimal size given the space available. If we set flex-shrink to 0 we enforce the size, this is not recommendet (except in some niche cases).
+9. **Best Practice** never use flex-shrink/-basis/-grow but only flex: ...
+10. Important to remove margins etc. else it will be part of the centering which leads to weird behaviour (eg incorrect centering)
+11. We have a mess since we started with self-defined marings etc. and for floats. Now where we use flex box it is a mess/we often have to remove margins etc. Normally this won't happen / we should deisng for CSS grid and flexboxes.
+12. Often we have to create a new container for our flex box layout to be successful.
+13. If we have to still use math (eg 1200 with total, x for left side, y for right, z for space between) we defeat the purpose of using flexbox in the first place. We only want to set some numbers (eg we want right side to be 300px rest should be automatically.)
+14. With float layouts it was really hard to get 2 children exactly the same height etc. Now its default - amazing :3
+15. In the end we need a div/container for all elements which should be stacked horizontally / we want to have in one line.
+16. Flex box is REALLY important, and CSS-Grid are kidna based on them.
