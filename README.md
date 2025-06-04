@@ -119,11 +119,22 @@ Documentation is https://developer.mozilla.org/en-US/ (MDN web doc) nice.
 
 ### CSS-Grid
 
-1. We can use display: none to remove an element(or container) completely form the page.
-2. Most modern, complete and even easiest (if using fundamentals) way to build layouts. Is a two dimensional layout (row, columns)
-3. Again, things as in css-grid where insanly hard earlier and took alot of time.
-4. CSS-Grid nice since it leads to **less nested HTML** (aka even less as we need for flexbox)
-5. CSS-Grid does NOT replace flexbox. for 1D layout we use flexbox, for 2D we use CSS-Grid.
-6. **Terminology:** As in flexbox we have a Grid container with Grid items, row and column axes (we can't change their orientation tho). Additionally we have grid lines (pretty much teh seperators of items, eg 2x3 grid has 3x4 grid lines). We also have Grid cells (do not have to be filled by a Grid item and do also not have to be filled entierly). Gaps are called Gutters. We also have Grid track/row and Grid track/column.
-7. Using pixels is very ridgid, so often we want flexible rows/columns.
-8. If a row is added automatically, we call it implicit rows. If we define it manually its called an explicit row.
+1.  We can use display: none to remove an element(or container) completely form the page.
+2.  Most modern, complete and even easiest (if using fundamentals) way to build layouts. Is a two dimensional layout (row, columns)
+3.  Again, things as in css-grid where insanly hard earlier and took alot of time.
+4.  CSS-Grid nice since it leads to **less nested HTML** (aka even less as we need for flexbox)
+5.  CSS-Grid does NOT replace flexbox. for 1D layout we use flexbox, for 2D we use CSS-Grid.
+6.  **Terminology:** As in flexbox we have a Grid container with Grid items, row and column axes (we can't change their orientation tho). Additionally we have grid lines (pretty much teh seperators of items, eg 2x3 grid has 3x4 grid lines). We also have Grid cells (do not have to be filled by a Grid item and do also not have to be filled entierly). Gaps are called Gutters. We also have Grid track/row and Grid track/column.
+7.  Using pixels is very ridgid, so often we want flexible rows/columns.
+8.  If a row is added automatically, we call it implicit rows. If we define it manually its called an explicit row.
+9.  For **positioning elements** on different poisiton we use grid-column/row 1 / 2 (**Best practice** to usw 1 / 2 meaning between column/row 1 and 2). We can also fill multiple cells with that! eg 1 / 3 => this is cool \<3
+    - We can also simply say start position / span n (eg 1 / span 3) so that we don't have to do the math and just tell it how large it should be.
+    - For situations where we don't know how many cells there are in cells or we don't want to think about it we can use grid-column: 1 / -1 (or other positions like 2 / - 3 for that matter)
+10. Using align-item and then using align-self in elemnt selector is a great way to position some items uniquely.
+11. We don't have to remember everything, but we need to know how it works fundamentally so that we can use the cheat sheet :D
+12. By default CSS-Grid are placed in rows (aka it wont change the content / display by default)
+
+### Combine Flexbox and CSS-Grid
+
+1. They are perfect to use together, designing the big picture strucutre with CSS-Grid but for example if we have something like the author or related posts (something one dimensional) flexbox is great and CSS-Grid would be a overkill.
+2. INSANE how powerful it is :o So much faster and easier! Eg auto sizing, margins etc. Really cool, in the leanring example i was able to remove 3 containers as in flex only design.
